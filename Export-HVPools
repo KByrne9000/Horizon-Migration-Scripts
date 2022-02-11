@@ -1,0 +1,46 @@
+#Login variables
+#User input instead for fixed input - $horizonServer = Read-Host -Prompt 'Enter the Horizon Connection Server Name'
+#User input instead for fixed input - $username = Read-Host -Prompt 'Enter the Username (without the domain name)'
+#User input instead for fixed input - $password = Read-Host -Prompt 'Enter the Password' -AsSecureString
+#User input instead for fixed input - $domain = Read-Host -Prompt 'Enter the Horizon AD Domain'
+$horizonServer = 
+$username =
+$password = 
+$domain = 
+
+#File location variable
+$fileloc = "C:\Powershell-Logs\HorizonDB\"
+
+#Connect to the Horizon Environment
+Write-Output "", "Connect to the Connection Server"
+Connect-HVServer -Server $horizonServer -Domain $domain -user $username -Password $password
+
+#Export Horizon pool information to separate json file
+Write-Output "", "Connection Server pool export"
+$pools = (Get-HVPool).base.name       #Production way of getting variable
+###$pools = "Admin-TitleOne"             #For Validation using a Fixed Valiable
+
+Write-Output 'Exporting these pools to json',$pools -ForegroundColor Green
+ForEach ($pool in $pools) {
+    Write-Output ''
+    Write-Output 'Export pool',$pool -ForegroundColor green
+    Write-Output ''
+    $JSONfile = ($fileloc + $pool + ".json")
+    Get-hvpool -PoolName $pool | Get-HVPoolSpec -FilePath $JSONFile
+    Write-Output ''
+    Write-Output 'These are the Machine Names:'
+    $machinenames = (Get-HVMachine -PoolName $pool).base.name
+    Write-Output $machinenames
+    #Update the JSON with Machines instead of Null
+    $MachineJSON = (Get-Content $JSONfile | ConvertFrom-Json)
+        Add-Member -InputObject $MachineJSON.ManualDesktopSpec.machines -Notepropertyname 'machine' -Notepropertyvalue $machinenames
+    #$MachineJSON | ConvertTo-Json | Out-File $JSONFile
+   
+    Write-Output ''
+    Write-Output 'These are the Entitlements:'
+    $poolentitlements = (get-hventitlement -ResourceName $pool).base.DisplayName
+    Write-Output $poolentitlements
+    ######$poolenetitlments put into a File
+    Write-Output '' 
+
+} 
