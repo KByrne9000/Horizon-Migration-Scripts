@@ -1,0 +1,91 @@
+{
+    "Base":  {
+                 "accessGroup":  "Root",
+                 "description":  "Admin Machines for TitleOne",
+                 "name":  "TitleOne-Admin",
+                 "displayName":  "TitleOne-Admin"
+             },
+    "DesktopSettings":  {
+                            "Enabled":  true,
+                            "Deleting":  false,
+                            "ConnectionServerRestrictions":  null,
+                            "LogoffSettings":  {
+                                                   "PowerPolicy":  "TAKE_NO_POWER_ACTION",
+                                                   "AutomaticLogoffPolicy":  "NEVER",
+                                                   "AutomaticLogoffMinutes":  null,
+                                                   "AllowUsersToResetMachines":  true,
+                                                   "AllowMultipleSessionsPerUser":  false,
+                                                   "DeleteOrRefreshMachineAfterLogoff":  "NEVER",
+                                                   "RefreshOsDiskAfterLogoff":  "NEVER",
+                                                   "RefreshPeriodDaysForReplicaOsDisk":  null,
+                                                   "RefreshThresholdPercentageForReplicaOsDisk":  null,
+                                                   "EmptySessionTimeoutPolicy":  null,
+                                                   "EmptySessionTimeoutMinutes":  null,
+                                                   "LogoffAfterTimeout":  null,
+                                                   "PreLaunchSessionTimeoutPolicy":  null,
+                                                   "PreLaunchSessionTimeoutMinutes":  null,
+                                                   "SessionTimeoutPolicy":  null
+                                               },
+                            "DisplayProtocolSettings":  {
+                                                            "SupportedDisplayProtocols":  [
+                                                                                              "BLAST",
+                                                                                              "PCOIP",
+                                                                                              "RDP"
+                                                                                          ],
+                                                            "DefaultDisplayProtocol":  "PCOIP",
+                                                            "AllowUsersToChooseProtocol":  true,
+                                                            "PcoipDisplaySettings":  {
+                                                                                         "Renderer3D":  "AUTOMATIC",
+                                                                                         "EnableGRIDvGPUs":  false,
+                                                                                         "VGPUGridProfile":  null,
+                                                                                         "VRamSizeMB":  256,
+                                                                                         "VRamSizeKB":  null,
+                                                                                         "MaxNumberOfMonitors":  2,
+                                                                                         "MaxResolutionOfAnyOneMonitor":  "WUXGA"
+                                                                                     },
+                                                            "EnableHTMLAccess":  true,
+                                                            "EnableCollaboration":  false
+                                                        },
+                            "FlashSettings":  {
+                                                  "Quality":  "NO_CONTROL",
+                                                  "Throttling":  "DISABLED"
+                                              },
+                            "MirageConfigurationOverrides":  {
+                                                                 "OverrideGlobalSetting":  false,
+                                                                 "Enabled":  null,
+                                                                 "Url":  null
+                                                             },
+                            "CategoryFolderName":  null,
+                            "ClientRestrictions":  false,
+                            "ShortcutLocations":  null,
+                            "AllowMultipleSessionsPerUser":  false,
+                            "SupportedSessionType":  "DESKTOP",
+                            "CloudManaged":  false,
+                            "CloudAssigned":  false,
+                            "DisplayAssignedMachineName":  false,
+                            "DisplayMachineAlias":  false
+                        },
+    "Type":  "MANUAL",
+    "AutomatedDesktopSpec":  null,
+    "ManualDesktopSpec":  {
+                              "machines":  null,
+                              "userAssignment":  {
+                                                     "UserAssignment":  "DEDICATED",
+                                                     "AutomaticAssignment":  true,
+                                                     "AllowMultipleAssignments":  false
+                                                 },
+                              "source":  "VIRTUAL_CENTER",
+                              "viewStorageAcceleratorSettings":  {
+                                                                     "UseViewStorageAccelerator":  false,
+                                                                     "ViewComposerDiskTypes":  "OS_DISKS",
+                                                                     "RegenerateViewStorageAcceleratorDays":  7,
+                                                                     "BlackoutTimes":  null
+                                                                 },
+                              "virtualCenter":  "dpvttovctr01.shared.corp.nrt",
+                              "virtualCenterManagedCommonSettings":  {
+                                                                         "TransparentPageSharingScope":  "VM"
+                                                                     }
+                          },
+    "RdsDesktopSpec":  null,
+    "GlobalEntitlementData":  null
+}
