@@ -1,0 +1,12 @@
+$MachineList = [System.Collections.Generic.List[object]]::new()
+
+$MachineNames.ForEach({
+    $MachineList.Add([pscustomobject]@{Machine=$_})
+})
+
+$MachineJson.ManualDesktopSpec.Machines = $MachineList
+
+
+
+
+$MachineJSON | ConvertTo-Json -Depth 10 | Out-File $JSONFile
