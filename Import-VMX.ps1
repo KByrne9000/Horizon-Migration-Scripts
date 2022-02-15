@@ -12,13 +12,13 @@
     https://developer.vmware.com/powercli/installation-guide
 #>
 
-$vCenter = "dpvttovctr01.shared.corp.nrt"                   # vCenter / vSphere your connecting to
-$datacenterName = "DenverTitleOneVDI"                       # Name of the virtual datacenter in vCenter (Determines datastores being scanned)
-$vmFolder = "Import Test"                                   # Folder to import VMs into
-$hostCluster = "VDI01"                                      # Cluster to register VMs on
-$OldNetworkPortGroup = "Data"                               # Old Network
-$NewNetworkPortGroup = "DVPG VLAN 1136 10.250.136.0/21"     # New Network
-$logfilePath = "C:\Powershell-Logs\vSphere-Import.txt"      # Path of Log File for Script
+$vCenter = "SERVER"                   # vCenter / vSphere your connecting to
+$datacenterName = "DATACENTER"                       # Name of the virtual datacenter in vCenter (Determines datastores being scanned)
+$vmFolder = "VSPHER FOLDER"                                   # Folder to import VMs into
+$hostCluster = "CLUSTER"                                      # Cluster to register VMs on
+$OldNetworkPortGroup = "PREVIOUS NETWORK"                               # Old Network
+$NewNetworkPortGroup = "CURRENT NETWORK"     # New Network
+$logfilePath = "PATH"      # Path of Log File for Script
 
 Start-Transcript -Path "$logfilePath" -Append
 
