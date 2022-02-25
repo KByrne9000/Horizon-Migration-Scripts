@@ -18,7 +18,7 @@ $vmFolder = "VSPHER FOLDER"                                   # Folder to import
 $hostCluster = "CLUSTER"                                      # Cluster to register VMs on
 $OldNetworkPortGroup = "PREVIOUS NETWORK"                               # Old Network
 $NewNetworkPortGroup = "CURRENT NETWORK"     # New Network
-$logfilePath = "PATH"      # Path of Log File for Script
+$logfilePath = "C:\PATH\FILENAME.TXT"      # Path of Log File for Script
 
 Start-Transcript -Path "$logfilePath" -Append
 
@@ -33,10 +33,10 @@ catch {
     exit -1
     }
 
-# DEBUG Remove for Production
-$datastoreList = "Pure-VDI-Test"
+#DEBUG Remove for Production
+#$datastoreList = "DATASTORE"
 #Enable for Production
-###$datastoreList = (get-childitem -path "vmstores:\$vCenter@443\$datacenterName")
+$datastoreList = (get-childitem -path "vmstores:\$vCenter@443\$datacenterName")
 Write-Output "", "The Following Datastores were found: ", $datastoreList
 
 foreach ($ds in $datastoreList) {
