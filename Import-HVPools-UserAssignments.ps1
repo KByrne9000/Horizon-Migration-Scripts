@@ -13,19 +13,14 @@
 #>
 
 #Login variables
-###$horizonServer = Read-Host -Prompt "Enter the Horizon Connection Server Name"
-###$username = Read-Host -Prompt "Enter the Username (without the domain name)"
+$horizonServer = Read-Host -Prompt "Enter the Horizon Connection Server Name"
+$username = Read-Host -Prompt "Enter the Username (without the domain name)"
 $password = Read-Host -Prompt "Enter the Password" -AsSecureString
-###$domain = Read-Host -Prompt "Enter the Horizon AD Domain"
-
-# DEBUG login variables
-$horizonServer = "vcs.titleonecorp.com"
-$username = "byrnekevx"
-$domain = "NRTShared"
+$domain = Read-Host -Prompt "Enter the Horizon AD Domain"
 
 #File location variable
-$fileloc = "C:\Powershell-Logs\HorizonDB"
-$logfilePath = "C:\Powershell-Logs\HV-Import.txt"
+$fileloc = "C:\PATH"
+$logfilePath = "C:\PATH\FILENAME.txt"
 
 Start-Transcript -Path "$logfilePath" -Append
 
@@ -35,13 +30,10 @@ Connect-HVServer -Server $horizonServer -Domain $domain -user $username -Passwor
 
 #Importing each pools configuration from individual JSON files, and the Entitlements from individual TXT files
 Write-Output "", "Starting Horizon Connection Server Pool Import!", ""
-# DEBUG For Validation using a Fixed Valiable
-$Pools = "Test-PSScript"
-# For Production use
-###$Poolraw = get-childitem -Path "$fileloc" | where { $_.Name -like "*.json" }
-###                foreach ($Pool in $Poolraw) {                             
-###                $Pools = $Poolraw.name.replace(".json","")
-###           }
+$Poolraw = get-childitem -Path "$fileloc" | where { $_.Name -like "*.json" }
+                foreach ($Pool in $Poolraw) {                             
+                $Pools = $Poolraw.name.replace(".json","")
+           }
 Write-Output "Importing these pools to the Horizon Server: ", $Pools
 
 
