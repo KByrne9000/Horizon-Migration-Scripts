@@ -1,6 +1,6 @@
 ﻿
-$vCenter = "dpvttovctr01.shared.corp.nrt"
+$vCenter = "FQDN Server"
 
 Connect-VIServer -Server $vCenter
 
-Copy-VMGuestFile -Destination c:\powershell-logs\ -GuestToLocal -Source c:\LDports\Test.zip -GuestPassword Bl@ckNg0ld -GuestUser Administrator -VM GoldImage-Win10
+Copy-VMGuestFile -Destination c:\FILEPATH\FILE.EXT -GuestToLocal -Source c:\FILEPATH\FILE.EXT -GuestPassword LOCALPASSWORD -GuestUser LOCALADMIN -VM VMNAMEINVSPHERE
