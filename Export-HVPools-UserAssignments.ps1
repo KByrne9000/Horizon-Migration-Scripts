@@ -13,19 +13,14 @@
 #>
 
 #Login variables
-###$horizonServer = Read-Host -Prompt 'Enter the Horizon Connection Server Name'
-###$username = Read-Host -Prompt 'Enter the Username (without the domain name)'
+$horizonServer = Read-Host -Prompt 'Enter the Horizon Connection Server Name'
+$username = Read-Host -Prompt 'Enter the Username (without the domain name)'
 $password = Read-Host -Prompt 'Enter the Password' -AsSecureString
-###$domain = Read-Host -Prompt 'Enter the Horizon AD Domain'
-
-# DEBUG login variables
-$horizonServer = "vcs.titleonecorp.com"
-$username = "byrnekevx"
-$domain = "NRTShared"
+$domain = Read-Host -Prompt 'Enter the Horizon AD Domain'
 
 #File location variable
-$fileloc = "C:\Powershell-Logs\HorizonDB\"
-$logfilePath = "C:\Powershell-Logs\HV-Export.txt"
+$fileloc = "C:\PATH"
+$logfilePath = "C:\PATH\FILENAME.txt"
 
 Start-Transcript -Path "$logfilePath" -Append
 
